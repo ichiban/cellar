@@ -274,7 +274,6 @@ var Bottle = MediaType("application/vnd.bottle+json", func() {
 			Minimum(1)
 			Maximum(5)
 		})
-		Attribute("account", Account, "Account that owns bottle")
 		Attribute("created_at", DateTime, "Date of creation")
 		Attribute("updated_at", DateTime, "Date of last update")
 		// Attributes below inherit from the base type
@@ -289,7 +288,7 @@ var Bottle = MediaType("application/vnd.bottle+json", func() {
 		Attribute("review")
 
 		Required("_links", "id", "name", "vineyard", "varietal", "vintage", "color")
-		Required("created_at")
+		Required("created_at", "updated_at")
 	})
 
 	View("default", func() {
@@ -300,7 +299,6 @@ var Bottle = MediaType("application/vnd.bottle+json", func() {
 		Attribute("vineyard")
 		Attribute("varietal")
 		Attribute("vintage")
-		Attribute("links")
 	})
 })
 
